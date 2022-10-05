@@ -36,7 +36,7 @@ You must call `setup()` to effectively override `vim.notify` to make it emit sys
 Currently, the following features from `vim.notify`are supported / not supported:
 
 | Feature      | Supported? | Note                               |
-| =======      | ========== | ====                               |
+| -------      | ---------- | ----                               |
 | `level`      | No         | Set the log level.                 |
 | `opts.title` | Yes        | Set the title of the notification. |
 | `opts.icon`  | No         | Set the icon of the notification.  |
