@@ -24,6 +24,7 @@ You must call `setup()` to effectively override `vim.notify` to make it emit sys
 ```lua
   use {
     'phaazon/notisys.nvim',
+    branch = 'v0.1',
     config = function()
       require'notisys'.setup()
     end
