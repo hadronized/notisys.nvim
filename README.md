@@ -13,6 +13,7 @@ first before installing this plugin.
 Known to be working:
 
 - [kitty]
+- [iTerm2]
 
 # How to install
 
@@ -40,5 +41,6 @@ Currently, the following features from `vim.notify`are supported / not supported
 | `opts.icon`  | No         | Set the icon of the notification.  |
 
 [kitty]: https://sw.kovidgoyal.net/kitty
+[iTerm2]: https://iterm2.com
 [OSC-99]: https://gitlab.freedesktop.org/terminal-wg/specifications/-/issues/13
 [packer]: https://github.com/wbthomason/packer.nvim
