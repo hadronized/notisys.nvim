@@ -1,5 +1,15 @@
 local M = {}
 
+local function process_osc(osc)
+    local in_tmux = os.getenv('TMUX') ~= nil
+    if not in_tmux then
+      return string.format('\x1b]%s\x1b\\', osc)
+    end
+    -- using tmux's escape sequence passthrough:
+    -- https://github.com/tmux/tmux/wiki/FAQ#what-is-the-passthrough-escape-sequence-and-how-do-i-use-it
+    return string.format('\x1bPtmux;\x1b\x1b]%s\a\x1b\\', osc)
+end
+
 M.setup = function()
   vim.notify = function(msg, level, opts)
     local title = 'Neovim'
@@ -9,8 +19,8 @@ M.setup = function()
       title = opts.title
     end
 
-    io.write(string.format('\x1b]99;i=0:d=0:p=title;%s\x1b\\', title))
-    io.write(string.format('\x1b]99;i=0:d=1:p=body;%s\x1b\\', msg))
+    io.write(process_osc(string.format('99;i=0:d=0:p=title;%s', title)))
+    io.write(process_osc(string.format('99;i=0:d=1:p=body;%s', msg)))
   end
 end
 
